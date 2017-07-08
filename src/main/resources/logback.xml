@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" debug="true">
+
+
+    <appender name="rollFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${catalina.base}/logs/techmojo/general.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${catalina.base}/logs/immunization-service/general.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>===================================%n%d{yyyy-MM-dd HH:mm:ss,SSS z} %-5p %n{}CLASS: %c%n%m%n%n
+            </pattern>
+        </encoder>
+    </appender>
+
+
+    <appender name="exceptionAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${catalina.base}/logs/immunization-service/exceptions.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${catalina.base}/logs/techmojo/exceptions.%d{yyyy-MM-dd}.log.gz
+            </fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>===================================%n%d{yyyy-MM-dd HH:mm:ss,SSS z} %-5p %n{}CLASS: %c%n%m%n%n
+            </pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+    </appender>
+
+
+    <appender name="incomingRAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${catalina.base}/logs/immunization-service/incoming.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${catalina.base}/logs/techmojo/incoming.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>===================================%n%d{yyyy-MM-dd HH:mm:ss,SSS z} %-5p %n{}CLASS: %c%n%m%n%n
+            </pattern>
+        </encoder>
+    </appender>
+
+
+    <appender name="outgoingRAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${catalina.base}/logs/immunization-service/outgoing.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${catalina.base}/logs/techmojo/outgoing.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>===================================%n%d{yyyy-MM-dd HH:mm:ss,SSS z} %-5p %n{}CLASS: %c%n%m%n%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root logger will be set to TRACE. It also logs to the exception
+         appender that will filter out all levels but ERROR -->
+    <root level="TRACE">
+        <appender-ref ref="rollFile"/>
+        <appender-ref ref="exceptionAppender"/>
+    </root>
+
+
+    <logger name="org.apache.cxf.interceptor.LoggingInInterceptor" level="INFO">
+        <appender-ref ref="incomingRAppender"/>
+    </logger>
+
+
+    <logger name="org.apache.cxf.interceptor.LoggingOutInterceptor" level="INFO">
+        <appender-ref ref="outgoingRAppender"/>
+    </logger>
+
+</configuration>
