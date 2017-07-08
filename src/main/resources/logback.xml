@@ -5,7 +5,7 @@
     <appender name="rollFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${catalina.base}/logs/techmojo/general.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${catalina.base}/logs/immunization-service/general.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <fileNamePattern>${catalina.base}/logs/techmojo/general.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
         </rollingPolicy>
         <encoder>
             <pattern>===================================%n%d{yyyy-MM-dd HH:mm:ss,SSS z} %-5p %n{}CLASS: %c%n%m%n%n
@@ -15,7 +15,7 @@
 
 
     <appender name="exceptionAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${catalina.base}/logs/immunization-service/exceptions.log</file>
+        <file>${catalina.base}/logs/techmojo/exceptions.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${catalina.base}/logs/techmojo/exceptions.%d{yyyy-MM-dd}.log.gz
             </fileNamePattern>
@@ -31,7 +31,7 @@
 
 
     <appender name="incomingRAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${catalina.base}/logs/immunization-service/incoming.log</file>
+        <file>${catalina.base}/logs/techmojo/incoming.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${catalina.base}/logs/techmojo/incoming.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
         </rollingPolicy>
@@ -43,7 +43,7 @@
 
 
     <appender name="outgoingRAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${catalina.base}/logs/immunization-service/outgoing.log</file>
+        <file>${catalina.base}/logs/techmojo/outgoing.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${catalina.base}/logs/techmojo/outgoing.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
         </rollingPolicy>
