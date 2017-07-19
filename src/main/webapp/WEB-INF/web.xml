@@ -12,7 +12,7 @@
     </context-param>
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>com.tomojo.config.beans.RootContextConfig</param-value>
+        <param-value>com.shiva.config.beans.RootContextConfig</param-value>
     </context-param>
 
     <listener>
@@ -20,7 +20,7 @@
     </listener>
 
     <listener>
-        <listener-class>com.tomojo.context.utils.ContextListener</listener-class>
+        <listener-class>com.shiva.context.utils.ContextListener</listener-class>
     </listener>
 
 
@@ -33,7 +33,7 @@
         </init-param>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>com.tomojo.config.web.WebBeansConfig</param-value>
+            <param-value>com.shiva.config.web.WebBeansConfig</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
